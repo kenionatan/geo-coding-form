@@ -1,0 +1,12 @@
+c:\users\administrador\documents\visual studio 2015\Projects\geocoding\geocoding\bin\Debug\geocoding.exe.config
+c:\users\administrador\documents\visual studio 2015\Projects\geocoding\geocoding\bin\Debug\geocoding.exe
+c:\users\administrador\documents\visual studio 2015\Projects\geocoding\geocoding\bin\Debug\geocoding.pdb
+c:\users\administrador\documents\visual studio 2015\Projects\geocoding\geocoding\obj\Debug\geocoding.csprojResolveAssemblyReference.cache
+c:\users\administrador\documents\visual studio 2015\Projects\geocoding\geocoding\obj\Debug\geocoding.Form1.resources
+c:\users\administrador\documents\visual studio 2015\Projects\geocoding\geocoding\obj\Debug\geocoding.Properties.Resources.resources
+c:\users\administrador\documents\visual studio 2015\Projects\geocoding\geocoding\obj\Debug\geocoding.csproj.GenerateResource.Cache
+c:\users\administrador\documents\visual studio 2015\Projects\geocoding\geocoding\obj\Debug\geocoding.exe
+c:\users\administrador\documents\visual studio 2015\Projects\geocoding\geocoding\obj\Debug\geocoding.pdb
+C:\Users\Administrador\Documents\GitHubVisualStudio\geo-coding-form\geocoding\bin\Debug\geocoding.exe.config
+C:\Users\Administrador\Documents\GitHubVisualStudio\geo-coding-form\geocoding\obj\Debug\geocoding.exe
+C:\Users\Administrador\Documents\GitHubVisualStudio\geo-coding-form\geocoding\obj\Debug\geocoding.pdb
