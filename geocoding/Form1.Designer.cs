@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.txtLat = new System.Windows.Forms.TextBox();
             this.txtLong = new System.Windows.Forms.TextBox();
             this.btnCalcula = new System.Windows.Forms.Button();
@@ -41,6 +42,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.wbBrow = new System.Windows.Forms.WebBrowser();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtLat
@@ -179,11 +183,28 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Cidade:";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.wbBrow);
+            this.panel1.Location = new System.Drawing.Point(266, 29);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(627, 538);
+            this.panel1.TabIndex = 13;
+            // 
+            // wbBrow
+            // 
+            this.wbBrow.Location = new System.Drawing.Point(0, 0);
+            this.wbBrow.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wbBrow.Name = "wbBrow";
+            this.wbBrow.Size = new System.Drawing.Size(614, 524);
+            this.wbBrow.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(411, 357);
+            this.ClientSize = new System.Drawing.Size(914, 579);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtCidade);
             this.Controls.Add(this.label5);
@@ -197,8 +218,10 @@
             this.Controls.Add(this.btnCalcula);
             this.Controls.Add(this.txtLong);
             this.Controls.Add(this.txtLat);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Gerar Coordenadas";
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,6 +242,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.WebBrowser wbBrow;
     }
 }
 

@@ -44,6 +44,34 @@ namespace geocoding
             string posi3 = geo.Latitude.Substring(posicao,59);
             string posi4 = posi3.Substring(46, 12).Replace(">","").Replace("<","");
             txtLong.Text = posi4;
+
+
+
+
+
+            try
+            {
+                StringBuilder queryaddress = new StringBuilder();
+                queryaddress.Append("http://mygeoposition.com/loc/");
+
+                if(posi2 != string.Empty)
+                {
+                    queryaddress.Append(posi2+",");
+                }
+                if (posi4 != string.Empty)
+                {
+                    queryaddress.Append(posi4 + "/?zoomLevel=undefined&mapType=earth");
+                }
+
+                wbBrow.Navigate(queryaddress.ToString());
+
+                
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Error");
+
+            }
         }
 
         private void txtLat_KeyPress(object sender, KeyPressEventArgs e)
