@@ -60,7 +60,7 @@ namespace geocoding
                 }
                 if (posi4 != string.Empty)
                 {
-                    queryaddress.Append(posi4 + "/?zoomLevel=undefined&mapType=earth");
+                    queryaddress.Append(posi4 + "/?zoomLevel=undefined&mapType=undefined");
                 }
 
                 wbBrow.Navigate(queryaddress.ToString());
