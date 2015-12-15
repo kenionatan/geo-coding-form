@@ -21,56 +21,65 @@ namespace geocoding
         {
             var geo = new Address();
 
-            //geo.Line1 = "30 Frank Lloyd Wright Drive";
-            geo.Line1 = txtLine1.Text;
-            geo.Line2 = txtLine2.Text;
-            geo.City = txtCidade.Text;
-            geo.State = cBoxUf.Text.ToUpper();
-            geo.Country = "Brasil";
-
-            geo.GeoCode();
-
-            int posicao = geo.Latitude.IndexOf("<location>");
-            string posi = geo.Latitude.Substring(posicao,31);
-            //txtLat.Text = posi;
-            
-            string posi2 = posi.Substring(20, 11).Replace("<","");
-            txtLat.Text = posi2;
-            
-
-            //txtLat.Text = geo.Latitude;
-            //txtLong.Text = geo.Longitude;
-
-            string posi3 = geo.Latitude.Substring(posicao,59);
-            string posi4 = posi3.Substring(46, 12).Replace(">","").Replace("<","");
-            txtLong.Text = posi4;
-
-
-
-
-
-            try
+            if (txtLine1.Text == "")
             {
-                StringBuilder queryaddress = new StringBuilder();
-                queryaddress.Append("http://mygeoposition.com/loc/");
-
-                if(posi2 != string.Empty)
-                {
-                    queryaddress.Append(posi2+",");
-                }
-                if (posi4 != string.Empty)
-                {
-                    queryaddress.Append(posi4 + "/?zoomLevel=undefined&mapType=undefined");
-                }
-
-                wbBrow.Navigate(queryaddress.ToString());
-
-                
+                MessageBox.Show("Você Deve Digitar Pelo Menos A Rua.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString(), "Error");
+            else {
 
+                //geo.Line1 = "30 Frank Lloyd Wright Drive";
+                geo.Line1 = txtLine1.Text;
+                geo.Line2 = txtLine2.Text;
+                geo.City = txtCidade.Text;
+                geo.State = cBoxUf.Text.ToUpper();
+                geo.Country = "Brasil";
+
+                geo.GeoCode();
+
+                int posicao = geo.Latitude.IndexOf("<location>");
+                string posi = geo.Latitude.Substring(posicao, 31);
+                //txtLat.Text = posi;
+
+                string posi2 = posi.Substring(20, 11).Replace("<", "");
+                txtLat.Text = posi2;
+
+
+                //txtLat.Text = geo.Latitude;
+                //txtLong.Text = geo.Longitude;
+
+                string posi3 = geo.Latitude.Substring(posicao, 59);
+                string posi4 = posi3.Substring(46, 12).Replace(">", "").Replace("<", "");
+                txtLong.Text = posi4;
+
+
+
+
+
+                try
+                {
+                    StringBuilder queryaddress = new StringBuilder();
+                    //queryaddress.Append("http://mygeoposition.com/loc/");
+                    queryaddress.Append("http://maps.googleapis.com/maps/api/staticmap?center=");
+
+                    if (posi2 != string.Empty)
+                    {
+                        queryaddress.Append(posi2 + ",");
+                    }
+                    if (posi4 != string.Empty)
+                    {
+                        queryaddress.Append(posi4 + "&zoom=15&size=630x520&markers=color:red%7Clabel:%E2%80%A2%7C");
+                        queryaddress.Append(posi2 + "," + posi4 + "&path=weight:3%7Ccolor:blue%7Cenc:aofcFz_bhVJ[n@ZpAp@t@b@uA`FuAzEoCdJiDpLs@VM@y@s@oBcBkAw@cCoAuBu@eEaAiAa@iAi@w@a@o@g@g@k@e@u@uAaCc@i@w@y@eAo@i@UaBc@kAGo@@]JyKA}EC{G?q@?IGKCeGA{CAyCAyEAwEBaFAkJ?yGEyAIiLAiB?{@BcBJ}@@aBGwBEo@A@j@BjBFTHjEl@fOD`C?|@RARAJERWPL@FE^S`AI`A&key=AIzaSyDMFgRANsAB8BwMB1o3OBCElvoV2Zw_OkQ");
+                    }
+
+                    wbBrow.Navigate(queryaddress.ToString());
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString(), "Error");
+
+                }
             }
         }
 
