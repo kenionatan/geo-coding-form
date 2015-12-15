@@ -25,7 +25,7 @@ namespace geocoding
             geo.Line1 = txtLine1.Text;
             geo.Line2 = txtLine2.Text;
             geo.City = txtCidade.Text;
-            geo.State = cBoxUf.Text;
+            geo.State = cBoxUf.Text.ToUpper();
             geo.Country = "Brasil";
 
             geo.GeoCode();
@@ -77,6 +77,37 @@ namespace geocoding
         private void txtLat_KeyPress(object sender, KeyPressEventArgs e)
         {
             
+        }
+
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+            if (txtLat.Text == "")
+            {
+                MessageBox.Show("Ainda Não Foi Gerada a Latitude");
+            }
+            else
+            {
+                string copilat = txtLat.Text;
+                Clipboard.SetText(copilat);
+            }
+        }
+
+        private void btnCopiLong_Click(object sender, EventArgs e)
+        {
+            if (txtLong.Text == "")
+            {
+                MessageBox.Show("Ainda Não Foi Gerada a Longitude");
+            }
+            else
+            {
+                string copilong = txtLong.Text;
+                Clipboard.SetText(copilong);
+            }
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("AM Comercial - Geo Localização - Versão 1.1", "Help", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
     }
 }

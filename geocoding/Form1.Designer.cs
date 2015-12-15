@@ -45,6 +45,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.wbBrow = new System.Windows.Forms.WebBrowser();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnCopy = new System.Windows.Forms.Button();
+            this.btnCopiLong = new System.Windows.Forms.Button();
+            this.btnHelp = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -190,7 +193,7 @@
             this.panel1.Controls.Add(this.wbBrow);
             this.panel1.Location = new System.Drawing.Point(266, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(627, 538);
+            this.panel1.Size = new System.Drawing.Size(686, 571);
             this.panel1.TabIndex = 13;
             // 
             // wbBrow
@@ -198,7 +201,7 @@
             this.wbBrow.Location = new System.Drawing.Point(0, 0);
             this.wbBrow.MinimumSize = new System.Drawing.Size(20, 20);
             this.wbBrow.Name = "wbBrow";
-            this.wbBrow.Size = new System.Drawing.Size(614, 524);
+            this.wbBrow.Size = new System.Drawing.Size(671, 555);
             this.wbBrow.TabIndex = 0;
             // 
             // pictureBox1
@@ -210,11 +213,44 @@
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
+            // btnCopy
+            // 
+            this.btnCopy.Location = new System.Drawing.Point(183, 423);
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(47, 23);
+            this.btnCopy.TabIndex = 15;
+            this.btnCopy.Text = "Copiar";
+            this.btnCopy.UseVisualStyleBackColor = true;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
+            // 
+            // btnCopiLong
+            // 
+            this.btnCopiLong.Location = new System.Drawing.Point(183, 477);
+            this.btnCopiLong.Name = "btnCopiLong";
+            this.btnCopiLong.Size = new System.Drawing.Size(47, 23);
+            this.btnCopiLong.TabIndex = 16;
+            this.btnCopiLong.Text = "Copiar";
+            this.btnCopiLong.UseVisualStyleBackColor = true;
+            this.btnCopiLong.Click += new System.EventHandler(this.btnCopiLong_Click);
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.Location = new System.Drawing.Point(11, 577);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(24, 23);
+            this.btnHelp.TabIndex = 17;
+            this.btnHelp.Text = "?";
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 579);
+            this.ClientSize = new System.Drawing.Size(964, 612);
+            this.Controls.Add(this.btnHelp);
+            this.Controls.Add(this.btnCopiLong);
+            this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
@@ -232,6 +268,7 @@
             this.Controls.Add(this.txtLat);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerar Coordenadas";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -258,6 +295,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.WebBrowser wbBrow;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnCopy;
+        private System.Windows.Forms.Button btnCopiLong;
+        private System.Windows.Forms.Button btnHelp;
     }
 }
 
