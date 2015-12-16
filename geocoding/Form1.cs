@@ -67,40 +67,34 @@ namespace geocoding
                 try
                 {
                     StringBuilder queryaddress = new StringBuilder();
-                    //queryaddress.Append("http://mygeoposition.com/loc/");
+                    queryaddress.Append("http://mygeoposition.com/loc/");
                     //queryaddress.Append("https://maps.googleapis.com/maps/api/staticmap?center=");
-                    queryaddress.Append(@"
-                        <!DOCTYPE html>
-                        <html lang='pt-br'><head>
-                        
-                        </head><body>
+                    /*queryaddress.Append(@"
                     <iframe width='630' height='520' frameborder='0' style='border: 0'
         src = 'https://www.google.com/maps/embed/v1/place?q=");
 
                     queryaddress.Append(posi2 + "%2C" + posi4 + "&key=" + mapskey2 + @"' allowfullscreen>
                     </iframe>
-                    </body>
-                    </html>
-                    ");
+                    ");*/
 
-                    // if (posi2 != string.Empty)
-                    //{
-                    //    queryaddress.Append(posi2 + ",");
-                    // }
-                    // if (posi4 != string.Empty)
-                    // {
+                     if (posi2 != string.Empty)
+                    {
+                        queryaddress.Append(posi2 + ",");
+                     }
+                     if (posi4 != string.Empty)
+                     {
                     //    queryaddress.Append(posi4 + "&zoom=15&size=630x520&markers=color:red%7Clabel:%E2%80%A2%7C");
                     //    queryaddress.Append(posi2 + "," + posi4 + "&path=weight:3%7Ccolor:blue%7Cenc:aofcFz_bhVJ[n@ZpAp@t@b@uA`FuAzEoCdJiDpLs@VM@y@s@oBcBkAw@cCoAuBu@eEaAiAa@iAi@w@a@o@g@g@k@e@u@uAaCc@i@w@y@eAo@i@UaBc@kAGo@@]JyKA}EC{G?q@?IGKCeGA{CAyCAyEAwEBaFAkJ?yGEyAIiLAiB?{@BcBJ}@@aBGwBEo@A@j@BjBFTHjEl@fOD`C?|@RARAJERWPL@FE^S`AI`A&key=AIzaSyDMFgRANsAB8BwMB1o3OBCElvoV2Zw_OkQ");
-                    //queryaddress.Append(posi4+ "/?zoomLevel=undefined&mapType=undefined");
-                    //}
+                    queryaddress.Append(posi4+ "/?zoomLevel=undefined&mapType=undefined");
+                    }
 
                     //wbBrow.Navigate(queryaddress.ToString());
 
 
+
+                    //wbBrow.DocumentText = queryaddress.ToString();
                     wbBrow.ScriptErrorsSuppressed = true;
-                    wbBrow.DocumentText = queryaddress.ToString();
-                    
-                    //wbBrow.Document.Write(queryaddress.ToString());
+                    wbBrow.Navigate(queryaddress.ToString());
 
                     // Hides script errors without hiding other dialog boxes.
                     

@@ -198,10 +198,10 @@
             // 
             // wbBrow
             // 
-            this.wbBrow.Location = new System.Drawing.Point(0, 0);
+            this.wbBrow.Location = new System.Drawing.Point(0, -179);
             this.wbBrow.MinimumSize = new System.Drawing.Size(20, 20);
             this.wbBrow.Name = "wbBrow";
-            this.wbBrow.Size = new System.Drawing.Size(671, 555);
+            this.wbBrow.Size = new System.Drawing.Size(671, 735);
             this.wbBrow.TabIndex = 0;
             // 
             // pictureBox1
