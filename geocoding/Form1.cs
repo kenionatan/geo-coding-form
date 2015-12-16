@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,29 +53,60 @@ namespace geocoding
                 txtLong.Text = posi4;
 
 
+                string mapskey2 = ConfigurationManager.AppSettings["GoogleMapsAPIKey2"];
+                //setup a streamreader for retrieving data from Google.
+                //--------------StreamReader sr = null;
 
+                //Check to see if our maps key exists
+                if (string.IsNullOrEmpty(mapskey2))
+                {
+                    throw new Exception("No valid google maps api key to use for geocoding.  Please add an app key named \"GoogleMapsAPIKey2\" to the web.config file.");
+                }
 
 
                 try
                 {
                     StringBuilder queryaddress = new StringBuilder();
                     //queryaddress.Append("http://mygeoposition.com/loc/");
-                    queryaddress.Append("http://maps.googleapis.com/maps/api/staticmap?center=");
+                    //queryaddress.Append("https://maps.googleapis.com/maps/api/staticmap?center=");
+                    queryaddress.Append(@"
+                        <!DOCTYPE html>
+                        <html lang='pt-br'><head>
+                        
+                        </head><body>
+                    <iframe width='630' height='520' frameborder='0' style='border: 0'
+        src = 'https://www.google.com/maps/embed/v1/place?q=");
 
-                    if (posi2 != string.Empty)
-                    {
-                        queryaddress.Append(posi2 + ",");
-                    }
-                    if (posi4 != string.Empty)
-                    {
-                        queryaddress.Append(posi4 + "&zoom=15&size=630x520&markers=color:red%7Clabel:%E2%80%A2%7C");
-                        queryaddress.Append(posi2 + "," + posi4 + "&path=weight:3%7Ccolor:blue%7Cenc:aofcFz_bhVJ[n@ZpAp@t@b@uA`FuAzEoCdJiDpLs@VM@y@s@oBcBkAw@cCoAuBu@eEaAiAa@iAi@w@a@o@g@g@k@e@u@uAaCc@i@w@y@eAo@i@UaBc@kAGo@@]JyKA}EC{G?q@?IGKCeGA{CAyCAyEAwEBaFAkJ?yGEyAIiLAiB?{@BcBJ}@@aBGwBEo@A@j@BjBFTHjEl@fOD`C?|@RARAJERWPL@FE^S`AI`A&key=AIzaSyDMFgRANsAB8BwMB1o3OBCElvoV2Zw_OkQ");
-                    }
+                    queryaddress.Append(posi2 + "%2C" + posi4 + "&key=" + mapskey2 + @"' allowfullscreen>
+                    </iframe>
+                    </body>
+                    </html>
+                    ");
 
-                    wbBrow.Navigate(queryaddress.ToString());
+                    // if (posi2 != string.Empty)
+                    //{
+                    //    queryaddress.Append(posi2 + ",");
+                    // }
+                    // if (posi4 != string.Empty)
+                    // {
+                    //    queryaddress.Append(posi4 + "&zoom=15&size=630x520&markers=color:red%7Clabel:%E2%80%A2%7C");
+                    //    queryaddress.Append(posi2 + "," + posi4 + "&path=weight:3%7Ccolor:blue%7Cenc:aofcFz_bhVJ[n@ZpAp@t@b@uA`FuAzEoCdJiDpLs@VM@y@s@oBcBkAw@cCoAuBu@eEaAiAa@iAi@w@a@o@g@g@k@e@u@uAaCc@i@w@y@eAo@i@UaBc@kAGo@@]JyKA}EC{G?q@?IGKCeGA{CAyCAyEAwEBaFAkJ?yGEyAIiLAiB?{@BcBJ}@@aBGwBEo@A@j@BjBFTHjEl@fOD`C?|@RARAJERWPL@FE^S`AI`A&key=AIzaSyDMFgRANsAB8BwMB1o3OBCElvoV2Zw_OkQ");
+                    //queryaddress.Append(posi4+ "/?zoomLevel=undefined&mapType=undefined");
+                    //}
+
+                    //wbBrow.Navigate(queryaddress.ToString());
 
 
-                }
+                    wbBrow.ScriptErrorsSuppressed = true;
+                    wbBrow.DocumentText = queryaddress.ToString();
+                    
+                    //wbBrow.Document.Write(queryaddress.ToString());
+
+                    // Hides script errors without hiding other dialog boxes.
+                    
+
+
+    }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message.ToString(), "Error");
